@@ -42,23 +42,19 @@ export default class MyFetch extends Component {
 
         return (
             <table>
-                <th>Id</th> <th>Name</th> <th>Gender</th> 
-                <th>Age</th> <th>Eye Color</th> <th>Hair Color</th> 
-                <th>Films</th> <th>Species</th> <th>Url</th>
-                {users.map(user => 
-                    <tr key={user.id}>
-                        <td>{user.id}</td> 
-                        <td>{user.name}</td>
-                        <td>{user.gender}</td>
-                        <td>{user.age}</td>
-                        <td>{user.eye_color}</td>
-                        <td>{user.hair_color}</td>
-                        <td>{user.films}</td>
-                        <td>{user.species}</td>
-                        <td>{user.url}</td>
+                <thead>
+                    <tr>
+                        <th>Id</th><th>Name</th><th>Gender</th><th>Age</th><th>Eye Color</th><th>Hair Color</th><th>Films</th><th>Species</th><th>Url</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {users.map(user => <tr key={user.id}>
+                        <td>{user.id}</td><td>{user.name}</td><td>{user.gender}</td>
+                        <td>{user.age}</td><td>{user.eye_color}</td><td>{user.hair_color}</td>
+                        <td>{user.films}</td><td>{user.species}</td><td>{user.url}</td>
                     </tr>)}
+                </tbody>
             </table>
-              
         );
     }
 }
