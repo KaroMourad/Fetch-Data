@@ -9,6 +9,11 @@
 
 table,tr,td{
     border:1px solid black ;
-    margin: 3px;
     padding: 10px;
+    border-collapse: collapse;
+}
+
+body{
+    margin: 0;
+    padding: 0;
 }
