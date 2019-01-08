@@ -36,7 +36,7 @@ class MyFetch extends Component {
         let arr = event.target.parentNode.childNodes;
         let tmp = [];
         for(let i in arr) {
-            if(arr[i].textContent) {
+             if(arr[i].textContent) {
                 tmp.push(arr[i].textContent);
             }
         }
@@ -55,7 +55,6 @@ class MyFetch extends Component {
         if(isLoading) {
             return <img id="my-img" alt="...loading data" src={"https://loading.io/spinners/wave/lg.wave-ball-preloader.gif"}/>;
         }
-        
         return (
             <div  style={{position:"relative",width: "max-content"}}>
                 <table>
@@ -63,15 +62,17 @@ class MyFetch extends Component {
                         <tr key="header">{Object.keys(users[0]).map((elem,i) => (<th key={i}>{elem}</th>))}</tr>
                     </thead>
                     <tbody>
-                        {users.map(user => (<tr onClick={this.showModal} key={user.id}>
-                            {Object.keys(user).map((elem,i) => (<td key={i}>{user[elem]}</td>))}
-                        </tr>))}
+                        {users.map(user => (
+                            <tr onClick={this.showModal} key={user.id}>
+                                {Object.keys(user).map((elem,i) => (<td key={i}>{user[elem]}</td>))}
+                            </tr>)
+                        )}
                     </tbody>
                 </table>
                 <Modal 
                     onClose={this.showModal}
-                    show={this.state.show} >                       
-                        { Object.keys(user).map((elem,j) => <div key={j} >{user[elem]}<br/><hr/><br/></div>) }
+                    show={this.state.show} >                     
+                        {Object.keys(user).map((elem,j) => <div key={j}><b>{Object.keys(users[0])[j].toUpperCase()}</b>:  <u>{user[elem]}</u><br/><br/></div>)}
                 </Modal>
             </div>
         );
